@@ -14,3 +14,7 @@ pnpm-lock.yaml
 # Misc
 tmp/
 temp/
+
+# Allure results and reports
+allure-results/
+allure-report/

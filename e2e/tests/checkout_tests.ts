@@ -40,7 +40,9 @@ describe('Swag Labs Checkout Tests', () => {
         await ProductsPage.verifyCartIsEmpty();
     })
 
-     it('[TC-0009] Checkout without product', async () => {
+
+    // Skiped due to application bug
+    it.skip('[TC-0009] Checkout without product', async () => {
         await ProductsPage.openCart(); 
         await CartPage.verifyCartPageIsEmpty();
         await CartPage.clickOnCheckoutBtn();

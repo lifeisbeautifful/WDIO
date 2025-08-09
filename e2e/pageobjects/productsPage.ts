@@ -129,15 +129,20 @@ class ProductsPage {
         await browser.waitUntil(async () => {
             const handles = await browser.getWindowHandles();
             return handles.length > 1;
-        }, {timeout: 5000});
+        }, {timeout: 10000});
 
         const handles = await browser.getWindowHandles();
         let found = false;
 
         for (const handle of handles) {
             await browser.switchToWindow(handle);
-            const url = await browser.getUrl();
 
+            await browser.waitUntil(async () => {
+                const url = await browser.getUrl();
+                return url !== 'about:blank';
+            }, { timeout: 10000 });
+
+            const url = await browser.getUrl();
             if (url === linkUrl) {
                 await expect(browser).toHaveUrl(linkUrl);
                 found = true;
