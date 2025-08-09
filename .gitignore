@@ -1,0 +1,16 @@
+# Node.js
+node_modules/
+npm-debug.log*
+pnpm-debug.log*
+package-lock.json
+pnpm-lock.yaml
+
+# IDEs & Editors
+.vscode/
+
+# Env/config files
+.env
+
+# Misc
+tmp/
+temp/

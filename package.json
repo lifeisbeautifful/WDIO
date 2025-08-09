@@ -1,0 +1,17 @@
+{
+  "name": "webdriver_Tests",
+  "type": "module",
+  "devDependencies": {
+    "@faker-js/faker": "^9.9.0",
+    "@wdio/cli": "^9.18.4",
+    "@wdio/local-runner": "^9.18.4",
+    "@wdio/mocha-framework": "^9.18.0",
+    "@wdio/spec-reporter": "^9.18.0",
+    "@wdio/visual-service": "^9.0.0",
+    "dotenv": "^17.2.1",
+    "expect-webdriverio": "^5.4.1"
+  },
+  "scripts": {
+    "wdio": "wdio run ./wdio.conf.ts"
+  }
+}
