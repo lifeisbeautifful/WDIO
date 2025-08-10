@@ -40,3 +40,18 @@ jobs:
           export DISPLAY=:99
           npm run wdio
         working-directory: e2e
+
+      - name: Upload Allure results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-results
+          path: allure-results
+
+      - name: Upload Allure report (optional)
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-report
+          path: allure-report
+          retention-days: 30

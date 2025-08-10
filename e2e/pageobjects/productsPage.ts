@@ -74,11 +74,9 @@ class ProductsPage {
     }
 
     public async clickOnMenuItemText(text: MenuOptionValues) {
-        await browser.setWindowSize(1280, 720);
+        //await browser.setWindowSize(1280, 720);
 
-    // Просто чекаємо, поки пункти меню з'являться (бо меню вже відкрите)
         await browser.waitUntil(async () => {
-            const items = await this.menuItems;
             return await items.length > 0;
         }, { timeout: 5000, timeoutMsg: 'Menu items did not appear' });
 
