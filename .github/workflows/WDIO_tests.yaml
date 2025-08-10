@@ -6,7 +6,7 @@ on:
 
 env:
   BASE_URL: ${{ secrets.BASE_URL }}
-  USERNAME: ${{ secrets.STANDART_LOGIN }}
+  STANDART_LOGIN: ${{ secrets.STANDART_LOGIN }}
   PASSWORD: ${{ secrets.PASSWORD }}
 
 jobs:
