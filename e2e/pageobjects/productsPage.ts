@@ -74,7 +74,7 @@ class ProductsPage {
     }
 
     public async clickOnMenuItemText(text: MenuOptionValues) {
-        //await browser.setWindowSize(1280, 720);
+        await browser.setWindowSize(1280, 720);
 
         await browser.waitUntil(async () => {
             const items = await this.menuItems;
