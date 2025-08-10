@@ -77,6 +77,7 @@ class ProductsPage {
         //await browser.setWindowSize(1280, 720);
 
         await browser.waitUntil(async () => {
+            const items = await this.menuItems;
             return await items.length > 0;
         }, { timeout: 5000, timeoutMsg: 'Menu items did not appear' });
 
