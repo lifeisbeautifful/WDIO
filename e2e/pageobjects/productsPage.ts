@@ -74,11 +74,19 @@ class ProductsPage {
     }
 
     public async clickOnMenuItemText(text: MenuOptionValues) {
-        const items = await this.menuItems;
+        await browser.setWindowSize(1280, 720);
 
-        for(const item of items) {
-            const itemText = await item.getText();
-            if(itemText === text) {
+    // Просто чекаємо, поки пункти меню з'являться (бо меню вже відкрите)
+        await browser.waitUntil(async () => {
+            const items = await this.menuItems;
+            return await items.length > 0;
+        }, { timeout: 5000, timeoutMsg: 'Menu items did not appear' });
+
+        const items = await this.menuItems;
+        for (const item of items) {
+            const itemText = (await item.getText()).trim();
+            console.log('Menu item text:', itemText);
+            if (itemText === text) {
                 await item.click();
                 return;
             }
