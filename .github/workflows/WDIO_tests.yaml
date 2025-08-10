@@ -1,0 +1,43 @@
+name: WDIO Tests
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  BASE_URL: ${{ secrets.BASE_URL }}
+  USERNAME: ${{ secrets.STANDART_LOGIN }}
+  PASSWORD: ${{ secrets.PASSWORD }}
+
+jobs:
+  test:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install E2E dependencies
+        run: npm ci
+        working-directory: e2e
+
+      - name: Install ChromeDriver & GeckoDriver
+        run: |
+          npm install --global chromedriver geckodriver
+
+      - name: Start Xvfb (Headless Display)
+        run: |
+          sudo apt-get install -y xvfb
+          Xvfb :99 & export DISPLAY=:99
+
+      - name: Run WebDriver tests
+        run: |
+          export DISPLAY=:99
+          npm run wdio
+        working-directory: e2e
