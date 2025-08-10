@@ -24,7 +24,7 @@ jobs:
           node-version: '20'
 
       - name: Install E2E dependencies
-        run: npm ci
+        run: npm install
 
       - name: Install ChromeDriver & GeckoDriver
         run: |
