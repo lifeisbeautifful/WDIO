@@ -25,7 +25,6 @@ jobs:
 
       - name: Install E2E dependencies
         run: npm ci
-        working-directory: e2e
 
       - name: Install ChromeDriver & GeckoDriver
         run: |
